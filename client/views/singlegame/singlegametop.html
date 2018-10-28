@@ -1,0 +1,59 @@
+<template name="singlegametop">
+    <div style="width: 100%;padding: 0px;    position: inherit;">
+        {{#if header_image}}
+        <div class="ui grid padded two column stackable doubling ">
+            <div class="seven wide column" style="padding-bottom: 0px;">
+                <img src="{{header_image}}" style="width: 100%;border-radius: 0px 0px 10px 0px;
+                box-shadow: 0px 0px 5px #6b08f8, 5px 5px 10px black;
+            ">
+            </div>
+            <div class="nine wide column stackable" style="padding-left:1em;padding-right: 1em;">
+                <div class="ui center aligned header" style="margin-top: 1em;">
+                    <div class="ui huge header" style="    margin-bottom: 0px;">
+                        {{name}}
+                    </div>
+                    <div>
+                        {{#each categories}}
+                        {{#if filterCategories description}}
+                        <div class="ui mini red ongame button" style="    padding: 4px;
+                        font-size: 0.5em;">{{description}}</div>
+                        {{/if}}
+                        {{/each}}
+                        {{#each genres}}
+                        <div class="ui mini blue ongame label">{{description}}</div>
+                        {{/each}}
+                        <div class="ui mini purple ongame label">Release Date : {{release_date.date}}</div>
+                    </div>
+                </div>
+                <div>
+                    {{short_description}}
+                </div>
+                <div class="ui right floated" style="    float: right;
+                position: relative;
+                width: 202px;">
+                    <div class="ui button green ongame noradius fluid">
+                        <div>BUY FOR {{normalizePrice price_overview.final}}€</div>
+
+                    </div>
+                    <div class="ui button blue ongame noradius" style="    position: absolute;
+                    right: -3px;
+                    top: 40px;
+                    width: 100px;
+                    text-align: center;
+                    padding: 4px;">STEEM {{steemPrice
+                        (normalizePrice price_overview.final)}}</div>
+                    <div class="ui button blue ongame noradius" style="    position: absolute;
+                    right: 100px;
+                    top: 40px;
+                    width: 99px;
+                    text-align: center;
+                    padding: 4px;">SBD {{sbdPrice (normalizePrice
+                        price_overview.final)}}</div>
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <div class="ui top cover" style="background-image:url({{background}});"></div>
+        {{/if}}
+    </div>
+</template>

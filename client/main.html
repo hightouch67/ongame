@@ -1,0 +1,35 @@
+<head>
+  <title>Ongame</title>
+  <link rel="shortcut icon" type="image/png" href="./images/small.png">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+</head>
+
+<body>
+</body>
+
+<template name="mainlayout">
+  {{#if isMobile}}
+  {{> Template.dynamic template=top}}
+  <div class="pusher">
+    {{>leftsidebar}}
+    <article>
+        <div class="ui main container">
+      {{> Template.dynamic template=main}}
+    </div>
+    </article>
+  </div>
+  {{else}}
+  {{> Template.dynamic template=top}}
+  <div class="pusher">
+    {{>leftsidebar}}
+    <div class="main background"></div>
+    <article>
+      <div class="ui main container">
+        {{> Template.dynamic template=main}}
+      </div>
+    </article>
+  </div>
+  {{/if}}
+  <!-- {{> footer}} -->
+</template>

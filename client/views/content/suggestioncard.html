@@ -1,0 +1,27 @@
+<template name="suggestioncard">
+    <div class="example-2 card">
+        <a href="/@{{author}}/{{permlink}}" class="wrapper" style="background: url('{{imgFromBody this}}') no-repeat;
+                                                      min-height:168px;background-position-y: 30px;
+                                                      border-radius: 10px!important;    background-size:100%;">
+            <div class="ui top attached label purple ongame">
+                <div class="date">
+                    <span class="day left floated">{{DisplayTimeFrom created}}</span>
+                </div>
+            </div>
+                <div style="position: absolute;
+                       bottom: 30px;   width: 100%;
+          padding-left: 44px;"><a
+                        style="   overflow: hidden;
+         text-overflow: ellipsis;
+         display: -webkit-box;
+         -webkit-box-orient: vertical;
+         -webkit-line-clamp: 2;
+         max-height: 3.3em;width:100%;border-radius:0.28571429rem 0px 0px 0.28571429rem;  border-left: 2px solid #6b08f8!important;   border-top: 2px solid #6b08f8!important;    border-bottom: 2px solid #6b08f8!important;"
+                        class="ui label black" href="/@{{author}}/{{permlink}}">{{title}}</a></div>
+
+            <a  class="ui bottom attached label purple mini icon right labeled fluid noradius">
+                <i class="icon arrow right"></i>
+                View</a>
+            </a>
+    </div>
+</template>

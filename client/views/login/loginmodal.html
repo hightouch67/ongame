@@ -1,0 +1,44 @@
+<template name="loginmodal">
+    <div class="ui small inverted login modal">
+        <div class="ui grid padded">
+            <div class="ui grid row">
+                <div class="ui label fluid blue noradius">
+                    <h3>ONGAME AUTHENTIFICATION</h3>
+                </div>
+            </div>
+            <div class="sixteen wide column">
+                <form class="ui form inverted">
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="user icon"></i>
+                            <input type="text" name="username" placeholder="Username">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui left icon input inverted">
+                            <i class="lock icon"></i>
+                            <input type="password" name="privatekey" placeholder="Posting Key">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui checkbox">
+                            <input type="checkbox" name="rememberlogin">
+                            <label class="text">Remember Me</label>
+                        </div>
+                    </div>
+                    <div class="ui grid two column">
+                        <div class="column">
+                            <div class="ui fluid button blue ongame">Login</div>
+                        </div>
+                        <div class="column">
+                            <div id="steemconnect" class="ui fluid button blue ongame steemconnect">Login with SteemConnect</div>
+                        </div>
+                    </div>
+                    <div class="ui blue fluid label ongame" style="margin-top:20px;">
+                        No Account? Signup Now!
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>

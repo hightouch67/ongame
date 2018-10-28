@@ -1,0 +1,61 @@
+<template name="rightsidebar">
+    <div class="ui right sidebar labeled icon inverted vertical menu visible" style="  overflow-y: visible!important;padding-top: 60px;">
+        {{#if mainuser}}
+        <!-- <div class="ui right pointing dropdown profile"> -->
+            <a href="/@{{mainuser.name}}" class="item">
+                    <i class="ion-ios-contact icon"></i>
+                    {{mainuser.name}}
+            </a>
+        <!--     <div class="ui menu inverted">
+                {{>profiledropwdown}}
+            </div>
+        </div>
+        <a class="item">
+            <i class="ion-ios-contact icon"></i>
+            {{mainuser.name}}
+        </a> -->
+        <!-- <a class="item">
+            <i class="ion-android-contacts icon"></i>
+            Friends
+        </a> -->
+        <a class="item">
+            <i class="ion-card icon"></i>
+            Wallet
+        </a>
+        {{/if}}
+        {{#unless mainuser}}
+        <a id="login" class="item">
+            <i class="ion-log-in icon"></i>
+            Login
+        </a>
+        <a id="signup" class="item">
+            <i class="ion-person-add icon"></i>
+            No Account ?<div>Sign up Now!</div>
+        </a>
+        {{/unless}}
+        <a class="item">
+            <i class="ion-ios-game-controller-a icon"></i>
+            Play games
+        </a>
+        <a class="item">
+            <i class="ion-ios-pricetag icon"></i>
+            Market
+        </a>
+        <!-- {{#if mainuser}}
+        <a class="item">
+            <i class="ion-steam icon"></i>
+            Connect Steam
+        </a>
+        {{/if}} -->
+        <a class="item">
+            <i class="ion-help icon"></i>
+            Help
+        </a>
+        {{#with mainuser}}
+        <a id="logout" class="item">
+            <i class="ion-log-out icon"></i>
+            Log Out
+        </a>
+        {{/with}}
+    </div>
+</template>

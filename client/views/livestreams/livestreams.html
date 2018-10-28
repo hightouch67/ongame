@@ -1,0 +1,36 @@
+<template name="livestreams">
+                <div class="ui purple segment top" style="margin-top:0px!important;">
+                </div>
+                <div class="ui middle inverted segment npdg">
+                        <div class="ui grid center aligned" style="padding: 2em;">
+                            <div class="ui row huge header">LIVE STREAMING <span style="font-size: 0.6em!important;margin-left: 5px;">
+                                    POWERED BY VIMM.TV</span></div>
+                            <div class="ui row divided doubling stackable two cards" style="max-width: 100%;">
+                                {{#if trendingLiveVimm}}
+                                {{#each trendingLiveVimm}}
+                                {{> stream}}
+                                {{/each}}
+                                {{else}}
+                                <div class="ui active dimmer ongame" >
+                                    <div class="ui massive text loader purple ongame">Loading Livestreams</div>
+                                </div>
+                                {{/if}}
+                            </div>
+                            <div class="ui row huge header">LIVE STREAMING <span style="font-size: 0.6em!important;margin-left: 5px;">
+                                    POWERED BY TWITCH</span></div>
+                            <div class="ui row divided doubling stackable two cards" style="max-width: 100%;">
+                                {{#if twitchLive}}
+                                {{#each twitchLive}}
+                                {{> twitchstream}}
+                                {{/each}}
+                                {{else}}
+                                <div class="ui active dimmer ongame" >
+                                    <div class="ui massive text loader purple ongame">Loading Livestreams</div>
+                                </div>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                <div class="ui purple segment bottom">
+                </div>
+    </template>

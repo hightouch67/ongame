@@ -1,0 +1,104 @@
+<template name="singlegame">
+    {{#with currentSingleGame}}
+    <div class="ui container segment inverted game" style="padding: 0em;">
+        <!-- <div class="ui top cover" style="background-image:url({{background}});"></div> -->
+        <div class="ui grid column stackable padded">
+                    {{>singlegametop}}
+                <div class="ui small stackable top attached tabular menu game borderless  compact" style="    overflow-x: scroll;
+                overflow: hidden;">
+                    <a name="about" class="active item" data-tab="first">Presentation</a>
+                    <a name="post" class="item" data-tab="third">Discussions</a>
+                    <a name="stream" class="item" data-tab="fourth">Streams</a>
+                    <a name="video" class="item" data-tab="fifth">Videos</a>
+                    <a name="screenshot" class="item" data-tab="sixth">Screenshots</a>
+                    <a name="test" class="item" data-tab="seventh">Tests</a>
+                    <a name="cheat" class="item" data-tab="eigth">Cheats</a>
+                    <a name="wiki" class="item" data-tab="nineth">Wiki</a>
+                </div>
+                <div class="ui bottom attached active tab borderless game" data-tab="first">
+                    {{>aboutgame}}
+                </div>
+                <!-- <div class="ui bottom attached tab borderless profile" data-tab="second">
+                  {{>userblog}}
+                </div> -->
+                <div class="ui bottom attached tab borderless game" data-tab="third">
+                    <div class="ui purple segment top">
+                    </div>
+                    <div class="ui middle inverted segment npdg">
+                        <div class="ui grid center aligned items" style="padding: 2em;">
+                            <div class="ui huge header">Latest posts about {{name}}</div>
+                        </div>
+                        <div class="ui cards four">
+                                {{#each currentGameNews}}
+                                {{>card}}
+                                {{/each}}
+                            </div>
+                    </div>
+                    <div class="ui purple segment bottom">
+
+                    </div>
+                </div>
+                <div class="ui bottom attached tab borderless game" data-tab="fourth">
+                    {{>userrewards}}
+                </div>
+                <div class="ui bottom attached tab borderless game" data-tab="fifth">
+                    {{>videogame}}
+                </div>
+                <div class="ui bottom attached tab borderless game" data-tab="sixth">
+                    {{>screenshotgame}}
+                </div>
+                <div class="ui bottom attached tab borderless game" data-tab="seventh">
+                    {{>userreplies}}
+                </div>
+                <div class="ui bottom attached tab borderless game" data-tab="eigth">
+                    {{>userachievements}}
+                </div>
+                <div class="ui bottom attached tab borderless game" data-tab="nineth">
+                    {{>userstatistics}}
+                </div>
+        </div>
+    </div>
+    <script>
+        $('.menu.game .item')
+        .tab()
+    </script>
+    {{/with}}
+    <script>
+        
+        $('.menu.game .item').tab()
+        if (Session.get('currentgametab')) {
+            var tabmenu = Session.get('currentgametab');
+            switch (tabmenu) {
+                case 'overview':
+                    $('.menu.game .item').tab('change tab', 'first')
+                    break;
+                case 'blog':
+                    $('.menu.game .item').tab('change tab', 'second')
+                    break;
+                case 'friends':
+                    $('.menu.game .item').tab('change tab', 'third')
+                    break;
+                case 'rewards':
+                    $('.menu.game .item').tab('change tab', 'fourth')
+                    break;
+                case 'wallet':
+                    $('.menu.game .item').tab('change tab', 'fifth')
+                    break;
+                case 'comments':
+                    $('.menu.game .item').tab('change tab', 'sixth')
+                    break;
+                case 'replies':
+                    $('.menu.game .item').tab('change tab', 'seventh')
+                    break;
+                case 'achievements':
+                    $('.menu.game .item').tab('change tab', 'eigth')
+                    break;
+                case 'statistics':
+                    $('.menu.game .item').tab('change tab', 'nineth')
+                    break;
+                default:
+                    $('.menu.game .item').tab('change tab', 'first')
+            }
+        }
+    </script>
+</template>

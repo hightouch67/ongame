@@ -1,0 +1,21 @@
+<template name="topbardropdown">
+        {{#with mainuser}}
+        <div class="ui item bottom dropdown inverted bottom right profile" style="padding: 0.8em 0.5em 0.7em 1em;">
+            <div>{{mainuser.name}}</div>
+            <div class="avatar topbar" style="        margin: 0em 1.5em 0em 0em !important;position: inherit;top: 0px;">
+                    <img src="https://steemitimages.com/u/{{name}}/avatar/" style="    height: 100%;">
+                </div>
+            <div class="ui inverted vertical menu">
+                <a id="create"   href="/@{{name}}" class="item"> <i class="pencil alternate icon"></i>Profile</a>
+                <a id="top-blog" href="/@{{name}}/friends" class="item"> <i class="user icon"></i>Friends</a>
+                <a id="top-rewards" href="/@{{name}}/rewards" class="item"> <i class="comment icon"></i>Reward</a>
+                <a id="top-wallet"   href="/@{{name}}/wallet" class="item"> <i class="ion-card icon"></i>Wallet</a>
+                <a id="top-comments"  href="/@{{name}}/comments" class="item"> <i class="comments icon"></i>Comments</a>
+                <a id="top-replies"  href="/@{{name}}/replies" class="item"> <i class="trophy icon"></i>Rewards</a>
+                <a id="top-achievements"  href="/@{{name}}/achievements" class="item"> <i class="trophy icon"></i>Achievements</a>
+                <a id="top-statistics"  href="/@{{name}}/statistics" class="item"> <i class="trophy icon"></i>Statistics</a>
+                <a id="logout" class="item logout"> <i class="sign out icon"></i>{{translator 'COMMON_LOGOUT'}}</a>
+            </div>
+        </div>
+        {{/with}}
+    </template>

@@ -1,0 +1,75 @@
+<template name="article">
+    {{#with currentArticle}}
+    <div class="ui grid three column stackable">
+        <div class="three wide column">
+            {{#with currentAuthor}}
+            {{>profilecard}}
+            {{/with}}
+            {{#with currentSingleGame}}
+            {{> singlegametop}}
+            {{#if price_overview.final}}
+            <div class="ui green mini fluid button noradius">Buy for {{price_overview.final}}</div>
+            {{else}}
+            <div class="ui blue mini fluid button noradius">Not Released Yet</div>
+            {{/if}}
+            <div class="ui small header">News</div>
+            <div class="ui items" style="padding: 0px;">
+                {{#if gameNews}}
+                {{#each gameNews}}
+                {{>feedgamenews}}
+                {{/each}}
+                {{/if}}
+            </div>
+            {{/with}}
+        </div>
+        <div id="articleside" class="nine wide column">
+            <div class="ui purple segment top" style="margin-top:0px!important;">
+                <h1 class="ui header huge">{{title}}</h1>
+            </div>
+            <div class="ui middle inverted segment npdg">
+                <div class="content article">
+                    <div class="ui fluid black label noradius"><span>Published on : {{DisplayTimeCreated created}} </span>
+                        {{#if tagsArray json_metadata.tags}}
+                        <span class="ui right floated">{{#each json_metadata.tags}}
+                            <a href="/{{this}}">#{{this}}</a>{{/each}}
+                        </span>
+                        {{else}}
+                        <span class="ui right floated">
+                                <a href="/{{this}}">#{{json_metadata.tags}}</a>
+                            </span>
+                        {{/if}}
+                    </div>
+                    <div style="width:100%;height:350px;">
+                    {{#if json_metadata.video.content}}
+                         {{>player json_metadata.video.content}}
+                    {{/if}}
+                    </div>
+                    <div class="description" style="padding:1em;">
+                        {{{remarkableFormatter body}}}
+                    </div>
+                </div>
+            </div>
+            <div class="ui purple segment bottom">
+            </div>
+            <div class="ui purple segment top" style="margin-top:0px!important;">
+            </div>
+            <div class="ui middle inverted com segment npdg">
+                {{>comments}}
+            </div>
+            <div class="ui purple segment bottom">
+            </div>
+        </div>
+        <div class="three wide column">
+            <div class="ui divided cards">
+                {{#if currentSuggestions}}
+                {{#each currentSuggestions}}
+                {{#unless equals this.permlink currentArticle.permlink}}
+                {{> suggestioncard}}
+                {{/unless}}
+                {{/each}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    {{/with}}
+</template>

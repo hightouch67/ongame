@@ -1,0 +1,73 @@
+<template name="userachievements">
+    {{#with currentAuthor}}
+    <div class="ui purple segment top">
+        <div class="ui inverted tiny six statistics">
+                <div class="statistic">
+                        <div class="value">
+                            <i class="ion-ios-heart icon"></i>{{userMostPlayed.name}}
+                        </div>
+                        <div class="ui mini black label">
+                            Most played game
+                        </div>
+                    </div>
+            <div class="statistic">
+                <div class="value">
+                    <i class="ion-ios-game-controller-a icon"></i>{{userGames.length}}
+                </div>
+                <div class="ui mini black label">
+                    Games
+                </div>
+            </div>
+            <div class="statistic">
+                <div class="value">
+                    <i class="ion-ios-star icon"></i>{{userAllAchievements}}
+                </div>
+                <div class="ui mini black label">
+                    Achievements
+                </div>
+            </div>
+            <div class="statistic">
+                    <div class="value">
+                        <i class="ion-ios-clock icon"></i>{{userTotalPlayedTime}}
+                    </div>
+                    <div class="ui mini black label">
+                       Minutes Played
+                    </div>
+                </div>
+            <div class="statistic">
+                <div class="value">
+                    <i class="ion-ios-arrow-forward icon"></i>
+                </div>
+                <div class="label">
+                    View All
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui middle inverted segment npdg">
+        {{#if userGames}}
+        <div class="ui eight doubling cards">
+            {{#each userGames}}
+            <a style="color:white" href="/game-{{appID}}" class="card">
+                <div class="ui mini purple label">
+                    {{name}}
+                </div>
+                <img class="custom logo" src="{{logoURL}}">
+                Played : {{playTime}} minutes
+                <span>Achievements : {{userAchievementsTotal appID}}</span>
+                <div class='ui inverted list'>{{#each userAchievements appID}}<a class='item' style="color:#6b07f8" data-value='{{name}}'>{{name}}</a>{{/each}}</div>
+            </a>
+            {{/each}}
+
+        </div>
+        {{else}}
+        <div class="ui grid center aligned items" style="padding: 2em;">
+                <div class="ui huge header">There is no Steam Account linked to this profile</div>
+            </div>
+        {{/if}}
+    </div>
+    <div class="ui purple segment bottom">
+
+    </div>
+    {{/with}}
+</template>

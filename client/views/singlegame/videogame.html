@@ -1,0 +1,27 @@
+<template name="videogame">
+    <div class="ui purple segment top">
+    </div>
+    <div class="ui middle inverted segment npdg">
+            <div class="ui huge header">Videos</div>
+            {{#if movies}}
+            <video id="player" class="video-js" controls preload="auto" data-setup='{ "controls": true, "autoplay": false, "preload": "auto" }'
+                style="    width: 100%;
+                    height: 316px;margin-bottom: 1em;">
+                Your browser does not support the video tag.
+            </video>
+            <!-- <video id="my-video" class="video-js" controls preload="auto" width="640" height="264"
+                      poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
+                        <source src="MY_VIDEO.mp4" type='video/mp4'>
+                        <source src="MY_VIDEO.webm" type='video/webm'>
+                        <p class="vjs-no-js">
+                          To view this video please enable JavaScript, and consider upgrading to a web browser that
+                          <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                        </p>
+                      </video>
+                     -->
+            {{/if}}
+    </div>
+    <div class="ui purple segment bottom">
+
+    </div>
+</template>
